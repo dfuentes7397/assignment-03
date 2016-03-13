@@ -14,7 +14,7 @@ using std::cin;
 using std::endl;
 
 
-Part 1 (Exception)
+//Part 1 (Exception) Done by Nathan Blush
 void function(int ball)
 {
 	srand((unsigned)time(0));
@@ -49,7 +49,7 @@ int main()
 }
 
 
-// Part 2 (Templates)
+// Part 2 (Templates) //Done by Nelson Luong
 #include <iostream>
 
 using std::cout;
@@ -103,7 +103,7 @@ int main() {
 
 
 }
-// Part 3 Vectors
+// Part 3 Vectors //Done by David Fuentess
 #include <iostream>
 #include <vector>
 
