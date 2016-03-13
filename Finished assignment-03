@@ -1,0 +1,241 @@
+Project 3  
+/* ----------------------------------------------------------------------------
+* Copyright &copy; 2016 David Fuentes, Nathan Blush, Nelson Luong and Duy Do <dfuentes7397@csu.fullerton.edu>,<nb970@csu.fullerton.edu>,
+<nluong@csu.fullerton.edu>,<duy.ado@csu.fullerton.edu>
+* Released under the [MIT License] (http://opensource.org/licenses/MIT)
+* ------------------------------------------------------------------------- */
+
+/**
+
+#include <iostream>
+#include <vector>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+
+Part 1 (Exception)
+void function(int ball)
+{
+	srand((unsigned)time(0));
+	int pitch = (rand() % 3);
+	if (pitch == ball)
+		throw "You got a hit!!";
+	else
+		throw "Strike!!";
+}
+int main()
+{
+	int bat;
+	char choice;
+	cout << "Let's play a game of baseball." << endl;
+	do {
+		cout << "Where would you like to hit the ball?" << endl;
+		cout << "Choose a number between 0 and 2." << endl;
+		cin >> bat;
+		try
+		{
+			function(bat);
+		}
+		catch (const char * s)
+		{
+			cout << s << endl;
+		}
+		cout << "Would you like to try again?" << endl;
+		cin >> choice;
+	} while (choice == 'y');
+	system("pause");
+	return 0;
+}
+
+
+// Part 2 (Templates)
+#include <iostream>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+template <class T>
+T multiply (T num1, T num2) {  
+    return num1 * num2;
+}
+
+
+
+
+int main() {
+    char doAgain;
+    do {
+       
+    int i_num1;
+    int i_num2;
+    cout << "Enter 1st Number: ";
+    cin >> i_num1;    
+    cout << "Enter 2nd Number: ";
+    cin >> i_num2;
+    
+    float f_num1;
+    float f_num2;
+    cout << "Enter a 1st decimal: ";
+    cin >> f_num1;
+    cout << "Enter a 2nd decimal: ";
+    cin >> f_num2;
+    
+    double d_num1, d_num2;
+    cout << "Enter a double: ";
+    cin >> d_num1;
+    cout << "Enter a second double number: ";
+    cin >> d_num2;
+            
+    
+    cout << endl;
+    cout << "Answer with integer is: " << multiply(i_num1, i_num2) << endl;
+    cout << "Answer with float is: " << multiply(f_num1, f_num2) << endl;
+    cout << "Answer with double is: " << multiply(d_num1, d_num2) << endl << endl;
+    
+    cout << "Would you like to run the program again?";
+    cin >> doAgain;
+    } while (doAgain == 'Y' || doAgain == 'y');
+    
+    return 0;
+}
+
+
+}
+// Part 3 Vectors
+#include <iostream>
+#include <vector>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+
+int main()
+{
+	vector<int>superhero;
+	superhero.push_back(1);
+	superhero.push_back(2);
+	superhero.push_back(3);
+	superhero.push_back(4);
+	cout << "Vector: ";
+	for (unsigned int i = 0; i < superhero.size();i++) {
+		cout << superhero[i] << " ";
+	}
+	cout << endl;
+	cout << "(Vectors can only hold numbers...)"<< endl;
+	system("pause");
+	return 0;
+
+}
+
+
+
+
+
+Part 4 (Recursion) (4/4 Completed)
+Part A) (Completed) -Duy 3/7/2016
+int gcd (int a, int b) {
+
+//base case
+if (a==0) return b;
+if (b==0) return a;
+if (a==b) return a;
+
+// recursive case
+if (a>b) {
+    return gcd( b, a%b);
+}
+if (a<b) {
+    return gcd( a, b%a);
+}
+}
+Part B (Completed) -Duy 3/7/2016
+int fib(int n) {
+ 	
+// base case 
+if (n==1) return 1;
+if (n==2) return 2;
+
+//recursion case
+return fib(n-1) + fib (n-2);
+} 
+Part C (Completed) - Duy 3/7/2016
+int pow(int a, int b) {
+ int num1=1;
+
+//base case
+ if (b==0) return num1;
+  if (a==1) return a;
+
+//recursion case
+    return a*pow(a,b-1);
+}
+Part D (Completed) - Duy 3/7/2016
+int tri (int n) {
+  int num1=1;
+    
+// base case 
+    if (n==1) return num1;
+    
+// recursion case
+    return n + tri(n-1);   
+} 
+Part 5 Iteration (4/4 Completed)
+Part A (Completed) - Duy 3/7/2016
+int gcd_iter(int a, int b) {
+   int temp;
+   if (a>b) {
+       while (b!=0) {
+           temp=a;
+           a=b;
+           b=temp%b;
+       }
+       return a;
+   }
+   if (a<b) {
+       while(a!=0) {
+           temp=b;
+           b=a;
+           a=temp%a;
+       }
+       return b;
+   }
+   if (a==b) return a;
+}
+Part B (Completed) - Duy 3/7/2016
+int fib_iter(int n) {
+    if (n==1|| n==2) return 1;
+    int total=2;
+    for (int i=0; i<=n-3; i++){
+        total+=i;
+    }
+    return total;
+}
+Part C (Completed) - Duy 3/7/2016
+int pow_iter(int a, int b) {
+    int base=1;
+    if (b==0) return base;
+    for (int i =0 ; i<b ; i++ ) {
+        base*=a;
+    }
+    return base;
+}
+Part D (Completed) - Duy 3/7/2016
+int tri_iter(int n) {
+    int sum=0;
+    for (int i =1; i<=n; i ++) {
+        sum+=i;
+    }
+    return sum;
+}
+
+
+
+		
+
+ 
+
+
